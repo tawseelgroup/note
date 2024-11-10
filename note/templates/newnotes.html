@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>Notes</h1>
+<form
+  action="/notes/"
+  method="POST"
+  style="diplay: flex; flex-direction: column; gap: 10px"
+>
+{% csrf_token %}
+  <div>
+    <label for="title">Title:</label><br>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      required
+      style="padding: 5px; border: 1px solid lightgray; text-align: left"
+    />
+  </div>
+  <div>
+    <label for="content">Content:</label><br>
+    <textarea
+      id="content"
+      name="content"
+      rows="10"
+      required
+      style="padding: 5px; border: 1px solid lightgray"
+    ></textarea>
+  </div>
+  <div>
+    <button
+      type="submit"
+      value="Add Note"
+
+      style="padding: 5px; border: 1px solid skyblue backgroundColor: blue; border-radius: 5px; text-align:left; "
+    >
+    Add Note
+  </button>
+  </div>
+</form>
+{% endblock content %}

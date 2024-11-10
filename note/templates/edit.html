@@ -1,0 +1,50 @@
+{% load static %}
+{% extends "base.html" %}
+{% block content %}
+<h1>Notes</h1>
+<form
+  action="/updateNote"
+  method="post"
+  style="diplay: flex; flex-direction: column; gap: 10px"
+>
+{% csrf_token %}
+<div>
+  <label for="title">Title:</label><br>
+  <input
+    type="text"
+    id="title"
+    value="{{ note.title }}"
+    id="title"
+    name="title"
+    innerHTML="{{ note.title }}"
+    required
+    style="padding: 5px; border: 1px solid lightgray; text-align: left"
+  />
+</div>
+<div>
+  <label for="content">Content:</label><br>
+  <textarea
+    id="content"
+    name= "content"
+    rows="10"
+    required
+    style="padding: 5px; border: 1px solid lightgray; text-align: left"
+  >{{ note.content }}</textarea>
+</div>
+<div>
+  <button
+    type="submit"
+    value={{note.id}}
+    name="update"
+    style="padding: 5px; border: 1px solid skyblue backgroundColor: blue; border-radius: 5px;"
+  >updat Note</button>
+  <button     
+    type="submit"
+    value={{note.id}}
+    name="delete"
+  >
+    Delete
+  </button>
+</div>
+</form>
+{% endblock content %}
